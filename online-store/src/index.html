@@ -1,12 +1,136 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online-store</title>
-</head>
-<body>
-  
-</body>
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Online Store</title>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="global.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img class="logo__img" src="./assets/logo.jpeg" alt="logo">
+          <p>Онлайн магазин <br> "HOCHY Noyt"</p>
+        </div>
+
+        <div class="header-controll">
+          <input type="search" class="search" autocomplete="off" placeholder="Поиск по названию">
+          <div class="selected-items">
+            <span class="selected-items__count">0</span>
+          </div>
+        </div>        
+      </div>
+    </header>
+
+    <main class="container main-content">
+      
+      <section class="items">
+        <div class="flex">
+          <div class="filters">
+
+            <div class="filters__sort">
+              <div class="label">Сортировать</div>
+              <select name="sort" id="sort">
+                <option value="name-asc">По названию ↓</option>
+                <option value="name-desc">По названию ↑</option>
+                <option value="count-asc">По цене ↓</option>
+                <option value="count-desc">По цене ↑</option>
+                <option value="year-asc">По году выпуска ↓</option>
+                <option value="year-desc">По году выпуска ↑</option>
+              </select>
+            </div>
+
+            <div class="filters__manufacturer">
+              <div class="label">Производитель</div>
+              <button class="filters__apple" data-filter="Apple"></button>
+              <button class="filters__hp" data-filter="HP"></button>
+              <button class="filters__asus" data-filter="ASUS"></button>
+              <button class="filters__aser" data-filter="Acer"></button>
+              <button class="filters__lenovo" data-filter="Lenovo"></button>
+            </div>
+
+            <div class="filters__cpu">
+              <div class="label">Процессор</div>
+              <div class="form-group">
+                <input type="checkbox" id="apple-m1" data-name="Apple M1">
+                <label for="apple-m1">
+                  <span class="checkbox"></span><span>Apple M1</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="intel-core" data-name="Intel Core">
+                <label for="intel-core">
+                  <span class="checkbox"></span><span>Intel Core</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="amd-ryzen" data-name="AMD Ryzen">
+                <label for="amd-ryzen">
+                  <span class="checkbox"></span><span>AMD Ryzen</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="intel-pentium" data-name="Intel Pentium">
+                <label for="intel-pentium">
+                  <span class="checkbox"></span><span>Intel Pentium</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filters__year">
+              <div class="label">Год выпуска</div>
+              <div class="slider year-slider" id="year-slider"></div>
+            </div>
+
+            <div class="filters__price">
+              <div class="label">Цена</div>
+              <div class="slider price-slider" id="price-slider"></div>
+            </div>
+
+            <div class="filters__color">
+              <div class="label">Цвет</div>
+              <button class="white" data-filter="белый"></button>
+              <button class="grey" data-filter="серый"></button>
+              <button class="black" data-filter="черный"></button>
+              <button class="silver" data-filter="серебристый"></button>
+            </div>
+
+            <div class="filters__favorite">
+              <div class="form-group">
+                <input type="checkbox" id="favorite">
+                <label for="favorite">
+                  <span class="checkbox"></span><span>Популярные</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filters__reset">
+              <button class="btn" id="reset-filters">Сбросить фильтры</button>
+              <button class="btn" id="reset-all">Очистить Корзину</button>
+            </div>
+          </div>
+          
+          <div class="items-container"></div>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <div class="container">
+        <a class="footer__item rs_img" href="https://rs.school/js/" target="_blank">
+            <img src="./assets/rs_school_js.svg" alt="rs school js">
+        </a>
+        <p class="footer__item">&copy;2022</p>
+        <a class="footer__item github" href="https://github.com/AlexeiKozovski/" target="_blank">
+            <img src="./assets/github.svg" alt="github">
+            <span>@AlexeiKozovski</span>
+        </a> 
+      </div>
+    </footer>
+  </body>
 </html>
