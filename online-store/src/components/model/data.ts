@@ -1,6 +1,6 @@
 const data = [
   {
-    num: '1',
+    id: '1',
     name: 'HP ProBook 455',
     count: '3250',
     year: '2021',
@@ -10,7 +10,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '2',
+    id: '2',
     name: 'ASUS VivoBook 14',
     count: '1900',
     year: '2021',
@@ -20,7 +20,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '3',
+    id: '3',
     name: 'Apple Macbook Air 13"',
     count: '3250',
     year: '2020',
@@ -30,7 +30,7 @@ const data = [
     favorite: true,
   },
   {
-    num: '4',
+    id: '4',
     name: 'HP 14s-dq',
     count: '1500',
     year: '2021',
@@ -40,7 +40,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '5',
+    id: '5',
     name: 'Lenovo IdeaPad Gaming 3',
     count: '2400',
     year: '2021',
@@ -50,7 +50,7 @@ const data = [
     favorite: true,
   },
   {
-    num: '6',
+    id: '6',
     name: 'ASUS TUF Gaming Dash F15',
     count: '3700',
     year: '2021',
@@ -60,7 +60,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '7',
+    id: '7',
     name: 'Lenovo Legion 5',
     count: '4200',
     year: '2022',
@@ -70,7 +70,7 @@ const data = [
     favorite: true,
   },
   {
-    num: '8',
+    id: '8',
     name: 'Acer ConceptD 3',
     count: '3300',
     year: '2020',
@@ -80,7 +80,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '9',
+    id: '9',
     name: 'Lenovo IdeaPad 3',
     count: '1850',
     year: '2021',
@@ -90,7 +90,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '10',
+    id: '10',
     name: 'Apple Macbook Pro 14" M1',
     count: '9000',
     year: '2021',
@@ -100,7 +100,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '11',
+    id: '11',
     name: 'Acer Aspire 5',
     count: '2370',
     year: '2021',
@@ -110,7 +110,7 @@ const data = [
     favorite: true,
   },
   {
-    num: '12',
+    id: '12',
     name: 'ASUS ZenBook 14',
     count: '4300',
     year: '2022',
@@ -120,7 +120,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '13',
+    id: '13',
     name: 'Apple Macbook Pro 16" M1 Max',
     count: '7000',
     year: '2021',
@@ -130,7 +130,7 @@ const data = [
     favorite: true,
   },
   {
-    num: '14',
+    id: '14',
     name: 'Acer Aspire 3',
     count: '2050',
     year: '2020',
@@ -140,7 +140,7 @@ const data = [
     favorite: true,
   },
   {
-    num: '15',
+    id: '15',
     name: 'HP 255 G7',
     count: '1370',
     year: '2019',
@@ -150,7 +150,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '16',
+    id: '16',
     name: 'Lenovo IdeaPad 330',
     count: '1550',
     year: '2018',
@@ -160,7 +160,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '17',
+    id: '17',
     name: 'ASUS ASUSPro',
     count: '1750',
     year: '2019',
@@ -170,7 +170,7 @@ const data = [
     favorite: false,
   },
   {
-    num: '18',
+    id: '18',
     name: 'Apple Macbook Pro 13" M1',
     count: '4500',
     year: '2020',

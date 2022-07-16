@@ -1,5 +1,5 @@
 export class Item {
-  num: number;
+  id: number;
   name: string;
   count: number;
   year: number;
@@ -9,7 +9,7 @@ export class Item {
   favorite: boolean;
 
   constructor(
-    num: number,
+    id: number,
     name: string,
     count: number,
     year: number,
@@ -18,7 +18,7 @@ export class Item {
     size: string,
     favorite: boolean,
   ) {
-    this.num = num;
+    this.id = id;
     this.name = name;
     this.count = count;
     this.year = year;
