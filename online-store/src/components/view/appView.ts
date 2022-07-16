@@ -1,5 +1,6 @@
 import { Item } from '../model/item';
 import { Filters } from './filters/filters';
+import { createNouisliders } from './utils/utils';
 
 export class AppView {
   filters: Filters;
@@ -11,6 +12,7 @@ export class AppView {
   viewContent(): void {
 
     document.addEventListener('DOMContentLoaded', () => {
+      createNouisliders();
       this.filtersTurnOn();
       this.resetStorageHandler();
     });
