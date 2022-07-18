@@ -1,14 +1,17 @@
 import { Item } from '../model/item';
 import { Filters } from './filters/filters';
+import { Sorting } from './sorting/sorting';
 import { Storage } from '../controller/storageController';
 import { createNouisliders } from './utils/utils';
 
 export class AppView {
   filters: Filters;
+  sorting: Sorting;
   storage: Storage;
 
   constructor(filter: HTMLElement, items: Item[]) {
     this.filters = new Filters(filter, items);
+    this.sorting = new Sorting();
     this.storage = new Storage();
   }
 
@@ -27,6 +30,11 @@ export class AppView {
     searchElem.focus();
 
     this.onStorageSavedHandler();
+    this.sorting.addItemSortingHandler(
+      this.filters.filtersElem,
+      this.filters.filteredItems,
+      this.filters.selectedItems,
+    );
     this.filters.addManufacturerFilterHandler();
     this.filters.addPriceFilterHandler();
     this.filters.addYearFilterHandler();

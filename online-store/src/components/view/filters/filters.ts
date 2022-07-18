@@ -30,8 +30,6 @@ export class Filters {
 
   itemsFilterApply(): void {
     const filter = this.activeFilters;
-
-    console.log(filter);
     
     this.filteredItems = this.items.filter((item: Item) => {
       return (

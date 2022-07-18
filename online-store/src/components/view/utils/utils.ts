@@ -16,10 +16,7 @@ export function itemsArray(items: ItemObj[]): Item[] {
       item.cpu,
       item.favorite,
     );
-  });
-
-  console.log(itemObjArray);
-  
+  });  
 
   return itemObjArray;
 }
