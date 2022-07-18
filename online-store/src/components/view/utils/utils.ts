@@ -9,11 +9,11 @@ export function itemsArray(items: ItemObj[]): Item[] {
     return new Item(
       Number(item.id),
       item.name,
-      Number(item.count),
+      Number(item.prise),
       Number(item.year),
-      item.shape,
+      item.manufacturer,
       item.color,
-      item.size,
+      item.cpu,
       item.favorite,
     );
   });

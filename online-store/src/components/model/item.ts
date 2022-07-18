@@ -1,30 +1,30 @@
 export class Item {
   id: number;
   name: string;
-  count: number;
+  prise: number;
   year: number;
-  shape: string;
+  manufacturer: string;
   color: string;
-  size: string;
+  cpu: string;
   favorite: boolean;
 
   constructor(
     id: number,
     name: string,
-    count: number,
+    prise: number,
     year: number,
-    shape: string,
+    manufacturer: string,
     color: string,
-    size: string,
+    cpu: string,
     favorite: boolean,
   ) {
     this.id = id;
     this.name = name;
-    this.count = count;
+    this.prise = prise;
     this.year = year;
-    this.shape = shape;
+    this.manufacturer = manufacturer;
     this.color = color;
-    this.size = size;
+    this.cpu = cpu;
     this.favorite = favorite;
   }
 

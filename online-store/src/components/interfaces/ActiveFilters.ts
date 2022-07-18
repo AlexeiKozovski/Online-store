@@ -1,10 +1,10 @@
 export interface ActiveFilters {
   name: string[];
-  shape: string[];
-  count: number[];
+  manufacturer: string[];
+  prise: number[];
   year: number[];
   color: string[];
-  size: string[];
+  cpu: string[];
   favorite: string[];
   search: string[];
 }

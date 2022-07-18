@@ -18,11 +18,11 @@ export class Filters {
     this.filteredItems =items;
     this.activeFilters = {
       name: [],
-      shape: [],
-      count: [],
+      manufacturer: [],
+      prise: [],
       year: [],
       color: [],
-      size: [],
+      cpu: [],
       favorite: [],
       search: [],
     };
@@ -30,19 +30,22 @@ export class Filters {
 
   itemsFilterApply(): void {
     const filter = this.activeFilters;
+
+    console.log(filter);
+    
     this.filteredItems = this.items.filter((item: Item) => {
       return (
-        (!filter.shape.length || filter.shape.includes(item.shape)) &&
+        (!filter.manufacturer.length || filter.manufacturer.includes(item.manufacturer)) &&
         (
-          !filter.count.length ||
-          (item.count >= filter.count[0] && item.count <= filter.count[1])
+          !filter.prise.length ||
+          (item.prise >= filter.prise[0] && item.prise <= filter.prise[1])
         ) &&
         (
           !filter.year.length || (item.year >= filter.year[0] &&
           item.year <= filter.year[1])
         ) &&
         (!filter.color.length || filter.color.includes(item.color)) &&
-        (!filter.size.length || filter.size.includes(item.size)) &&
+        (!filter.cpu.length || filter.cpu.includes(item.cpu)) &&
         (!filter.favorite.length || item.favorite === true) &&
         (
           !filter.search.length ||
@@ -62,12 +65,12 @@ export class Filters {
       
       if (etarget.tagName === 'BUTTON') {
         etarget.classList.toggle('active');
-        this.activeFilters.shape.length = 0;
+        this.activeFilters.manufacturer.length = 0;
         const active = manufacturers.querySelectorAll('.active');
 
         active.forEach((elem) => {
           const dataFilter = (elem as HTMLElement).dataset.filter as string;
-          this.activeFilters.shape.push(dataFilter);
+          this.activeFilters.manufacturer.push(dataFilter);
         });
 
         this.itemsFilterApply();
@@ -83,7 +86,7 @@ export class Filters {
       .querySelector('.slider-values .max') as HTMLElement;
 
     price.noUiSlider?.on('update', () => {
-      this.activeFilters.count.length = 0;
+      this.activeFilters.prise.length = 0;
       const min = Math.round(Number(
         (price.querySelector('.noUi-handle-lower') as HTMLElement).ariaValueNow),
       );
@@ -94,7 +97,7 @@ export class Filters {
       elementMin.textContent = `${min}`;
       elementMax.textContent = `${max}`;
 
-      this.activeFilters.count.push(min, max);
+      this.activeFilters.prise.push(min, max);
 
       this.itemsFilterApply();
     });
@@ -153,12 +156,12 @@ export class Filters {
       const etarget: HTMLElement = e.target as HTMLElement;
 
       if (etarget.tagName === 'INPUT') {
-        this.activeFilters.size.length = 0;
+        this.activeFilters.cpu.length = 0;
         const active = processors.querySelectorAll('input:checked');
 
         active.forEach((elem) => {
           const dataFilter = (elem as HTMLElement).dataset.name as string;
-          this.activeFilters.size.push(dataFilter);
+          this.activeFilters.cpu.push(dataFilter);
         });
 
         this.itemsFilterApply();
@@ -226,11 +229,11 @@ export class Filters {
 
       this.activeFilters = {
         name: [],
-        shape: [],
-        count: [],
+        manufacturer: [],
+        prise: [],
         year: [],
         color: [],
-        size: [],
+        cpu: [],
         favorite: [],
         search: [],
       };

@@ -1,18 +1,22 @@
 import { Item } from '../model/item';
 import { Filters } from './filters/filters';
+import { Storage } from '../controller/storageController';
 import { createNouisliders } from './utils/utils';
 
 export class AppView {
   filters: Filters;
+  storage: Storage;
 
   constructor(filter: HTMLElement, items: Item[]) {
     this.filters = new Filters(filter, items);
+    this.storage = new Storage();
   }
 
   viewContent(): void {
 
     document.addEventListener('DOMContentLoaded', () => {
       createNouisliders();
+      this.onStorageLoadedHandler();
       this.filtersTurnOn();
       this.resetStorageHandler();
     });
@@ -22,6 +26,7 @@ export class AppView {
     const searchElem = document.querySelector('.search') as HTMLInputElement;
     searchElem.focus();
 
+    this.onStorageSavedHandler();
     this.filters.addManufacturerFilterHandler();
     this.filters.addPriceFilterHandler();
     this.filters.addYearFilterHandler();
@@ -76,6 +81,34 @@ export class AppView {
     });
   }
 
+  onStorageSavedHandler(): void {
+    window.addEventListener('beforeunload', () => {
+      const actives = this.filters.filtersElem.querySelectorAll('.active');
+      const sliders = this.filters.filtersElem.querySelectorAll('.slider');
+      const inputsChecked = this.filters.filtersElem.querySelectorAll('input:checked');
+
+      this.storage.setToStorage(actives, sliders, inputsChecked);
+      this.storage.setStorageProperty(
+        this.filters.activeFilters,
+        this.filters.selectedItems,
+      );
+    });
+  }
+
+  onStorageLoadedHandler(): void {
+    const buttons = this.filters.filtersElem.querySelectorAll('button');
+    const sliders = this.filters.filtersElem.querySelectorAll('.slider');
+    const inputs = this.filters.filtersElem.querySelectorAll('input');
+    const activeFilters = this.storage.getActiveFiltersStorage();
+    this.filters.selectedItems = this.storage.getSelectedItemsStorage();
+
+    if (activeFilters) {
+      this.filters.activeFilters = activeFilters;
+    }
+    this.filters.itemsFilterApply();
+    this.storage.getToStorage(buttons, sliders, inputs);
+  }
+
   resetStorageHandler(): void {
     const resetAll = this.filters.filtersElem.querySelector('#reset-all') as HTMLElement;
 
@@ -83,6 +116,7 @@ export class AppView {
       const selectedItemCount = document.querySelector('.selected-items__count') as HTMLElement;
       selectedItemCount.textContent = '0';
 
+      this.storage.resetStorage();
       this.filters.selectedItems = [];
       
       this.filters.addResetFiltersHandler();

@@ -1,10 +1,10 @@
 export interface ItemObj {
   id: string;
   name: string;
-  count: string;
+  prise: string;
   year: string;
-  shape: string;
+  manufacturer: string;
   color: string;
-  size: string;
+  cpu: string;
   favorite: boolean;
 }

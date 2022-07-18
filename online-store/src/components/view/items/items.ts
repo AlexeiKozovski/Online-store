@@ -17,12 +17,12 @@ export function drawItems(itemArray: Item[], array: string[]): void {
     itemElem.innerHTML = `
       <p class="name">${item.name}</p>
       <img src="./assets/items/${item.id}.png" alt="${item.name}">
-      <p class="shape">Производитель: ${item.shape}</p>
-      <p class="size">Процессор: ${item.size}</p>
+      <p class="manufacturer">Производитель: ${item.manufacturer}</p>
+      <p class="cpu">Процессор: ${item.cpu}</p>
       <p class="year">Год выпуска: ${item.year} год</p>      
       <p class="color">Цвет: ${item.color}</p>      
       <p class="favorite">Популярный: ${item.favorite === true ? 'да' : 'нет'}</p>
-      <p class="count">Цена: ${item.count} BYN</p>
+      <p class="prise">Цена: ${item.prise} BYN</p>
       <button class="btnBuy">Купить</button>`;      
 
     itemsContainer.append(itemElem);
