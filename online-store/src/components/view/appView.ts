@@ -7,15 +7,12 @@ import { createNouisliders } from './utils/utils';
 export class AppView {
   filters: Filters;
 
-  sorting: Sorting;
-
-  storage: Storage;
-
   constructor(filter: HTMLElement, items: Item[]) {
     this.filters = new Filters(filter, items);
-    this.sorting = new Sorting();
-    this.storage = new Storage();
   }
+
+  private sorting = new Sorting();
+  private storage = new Storage();
 
   viewContent(): void {
 
