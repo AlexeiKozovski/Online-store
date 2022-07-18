@@ -12,6 +12,7 @@ export class AppView {
   }
 
   private sorting = new Sorting();
+
   private storage = new Storage();
 
   viewContent(): void {
