@@ -30,7 +30,7 @@ export function drawItems(itemArray: Item[], array: string[]): void {
   if (itemArray.length === 0) {
     const message = document.createElement('div');
     message.className = 'sorry';
-    message.innerHTML = '<p>Извините, совпадений не обнаружено</p>'
+    message.innerHTML = '<p>Извините, совпадений не обнаружено</p>';
     itemsContainer.append(message);
   }  
 }

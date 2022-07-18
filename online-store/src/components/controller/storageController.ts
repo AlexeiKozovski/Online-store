@@ -94,7 +94,7 @@ export class Storage {
 
     const zero = 0;
     const selectedItemCount = document.querySelector('.selected-items__count') as HTMLElement;
-      selectedItemCount.textContent = JSON.parse(
+    selectedItemCount.textContent = JSON.parse(
       localStorage.getItem('selectedItemCount') as string,
     ) || zero;
   }

@@ -6,7 +6,9 @@ import { createNouisliders } from './utils/utils';
 
 export class AppView {
   filters: Filters;
+
   sorting: Sorting;
+
   storage: Storage;
 
   constructor(filter: HTMLElement, items: Item[]) {
@@ -66,12 +68,12 @@ export class AppView {
 
         (target.closest('.btnBuy') as HTMLElement)
           .classList.toggle('selected');
-        if (target.closest('.btnBuy')?.classList.contains('selected')){
+        if (target.closest('.btnBuy')?.classList.contains('selected')) {
           (target.closest('.btnBuy') as HTMLElement)
             .innerHTML = 'В Корзине';
         } else {
           (target.closest('.btnBuy') as HTMLElement)
-          .innerHTML = 'Купить';
+            .innerHTML = 'Купить';
         }        
   
         array.length = 0;

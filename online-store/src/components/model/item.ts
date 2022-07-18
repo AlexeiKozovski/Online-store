@@ -1,11 +1,18 @@
 export class Item {
   id: number;
+
   name: string;
+
   prise: number;
+
   year: number;
+
   manufacturer: string;
+
   color: string;
+
   cpu: string;
+
   favorite: boolean;
 
   constructor(

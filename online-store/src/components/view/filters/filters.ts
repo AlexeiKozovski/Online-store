@@ -6,16 +6,20 @@ import { ActiveFilters } from '../../interfaces/ActiveFilters';
 
 export class Filters {
   filtersElem: HTMLElement;
+
   items: Item[];
+
   filteredItems: Item[];
+
   selectedItems: string[];
+
   activeFilters: ActiveFilters;
 
   constructor(filtersElem: HTMLElement, items: Item[]) {
     this.filtersElem = filtersElem;
     this.items = items;
     this.selectedItems = [];
-    this.filteredItems =items;
+    this.filteredItems = items;
     this.activeFilters = {
       name: [],
       manufacturer: [],

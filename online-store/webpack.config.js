@@ -40,18 +40,18 @@ const getPages = (dir, n) => {
     }, [])
     .concat(dirContent
       .filter(f => fs.lstatSync(path.resolve(dir, f)).isDirectory())
-      .reduce((res, f) => [...res, ...getPages(path.resolve(dir, f), n + 1)], [])
+      .reduce((res, f) => [...res, ...getPages(path.resolve(dir, f), n + 1)], []),
     );
 
   return pages;
 };
 
-const getEntryPoints = (pages) => pages.reduce((entry, {name, dir, script, style}) => Object.assign(entry,
+const getEntryPoints = (pages) => pages.reduce((entry, { name, dir, script, style }) => Object.assign(entry,
   script ? { [name]: makePath(path.join(dir, script)) } : {},
   style ? { [`${name}-styles`]: makePath(path.join(dir, style)) } : {},
 ), {});
 
-const getHtmlPlugins = (pages) => pages.map(({html, name, script, style}) => new HtmlWebpackPlugin({
+const getHtmlPlugins = (pages) => pages.map(({ html, name, script, style }) => new HtmlWebpackPlugin({
   template: html,
   filename: html,
   chunks: [ script ? name : null, style ? `${name}-styles` : null ].filter(c => !!c),
@@ -83,12 +83,12 @@ module.exports = ({ development }) => {
         },
         {
           test: /\.css$/i,
-          use: [{loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }}, 'css-loader'],
+          use: [{ loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } }, 'css-loader'],
         },
         {
           test: /\.s[ac]ss$/i,
-          use: [{loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }}, 'css-loader', 'sass-loader']
-        }
+          use: [{ loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } }, 'css-loader', 'sass-loader'],
+        },
       ],
     },
     plugins: [
@@ -110,7 +110,7 @@ module.exports = ({ development }) => {
             },
             noErrorOnMissing: true,
             force: true,
-          }
+          },
         ],
       }),
       new CleanWebpackPlugin(),
@@ -119,6 +119,6 @@ module.exports = ({ development }) => {
     resolve: {
       extensions: ['.js', '.ts'],
     },
-    ...devServer(development)
+    ...devServer(development),
   };
-}
+};
