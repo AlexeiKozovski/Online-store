@@ -5,7 +5,7 @@ import { Storage } from '../controller/storageController';
 import { createNouisliders } from './utils/utils';
 
 export class AppView {
-  filters: Filters;
+  private filters: Filters;
 
   constructor(filter: HTMLElement, items: Item[]) {
     this.filters = new Filters(filter, items);
@@ -15,7 +15,7 @@ export class AppView {
 
   private storage = new Storage();
 
-  viewContent(): void {
+  public viewContent(): void {
 
     document.addEventListener('DOMContentLoaded', () => {
       createNouisliders();
